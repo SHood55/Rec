@@ -1,13 +1,10 @@
-package com.company;
-
-import com.gc.android.market.api.MarketSession;
-import com.gc.android.market.api.model.Market;
+package rec;
 
 public class Main {
 
     public static void main(String[] args) {
-	// write your code here
-
+        // write your code here
+        System.out.println("start");
         String email = "wilhelmws@gmail.com";
         String password = "1.9.Alpha";
         MarketSession session = new MarketSession();
@@ -39,7 +36,7 @@ public class Main {
         }
     }
     public static void printApp(Market.App app){
-            System.out.println("Title: " + app.getTitle() + ", appType: " + app.getAppType() + ", creator: " + app.getCreator());
+        System.out.println("Title: " + app.getTitle() + ", appType: " + app.getAppType() + ", creator: " + app.getCreator());
 
     }
 
