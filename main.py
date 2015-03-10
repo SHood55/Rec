@@ -12,15 +12,16 @@ import BaseHTTPServer, SimpleHTTPServer, ssl
 
 def main() :
 
+#    name = "com.hdezninirola.frequency"
 #     name = "no.nrk.yr"
 #     name = "com.rovio.angrybirds"
 #     dir = "/Users/Wschive/Desktop/"
 #     name = "com.kabam.underworldandroid"
-#     getApps.run("com.tinder")
-#     risk.run("com.tinder")
+    getApps.run("com.bitdefender.clueful")
+    risk.run("com.bitdefender.clueful")
 #     recommender.recommend()
-#     hostSocket()
-    server.run()
+
+#     server.run()
 
     print "it ran!"
 

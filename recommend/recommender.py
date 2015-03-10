@@ -3,24 +3,40 @@ from scikits.crab.models import MatrixPreferenceDataModel
 from scikits.crab.metrics import pearson_correlation
 from scikits.crab.similarities import UserSimilarity
 from scikits.crab.recommenders.knn import UserBasedRecommender
+from scikits.crab.recommenders.knn import ItemBasedRecommender
+from scikits.crab.similarities.basic_similarities import ItemSimilarity
 import json
 import pandas as panda
 from pandas.io.json import json_normalize
 from sklearn.metrics.pairwise import euclidean_distances
+from scikits.crab.recommenders.knn.item_strategies import ItemsNeighborhoodStrategy
 
-movies = datasets.load_sample_movies()
-#Build the model
-model = MatrixPreferenceDataModel(movies.data)
-#Build the similarity
-similarity = UserSimilarity(model, pearson_correlation)
-#Build the User based recommender
-recommender = UserBasedRecommender(model, similarity, with_preference=True)
-#Recommend items for the user 5 (Toby)
-recommender.recommend(5)
+
 
 global data
 
 def recommend():
+
+    movies = datasets.load_sample_movies()
+    #Build the model
+    model = MatrixPreferenceDataModel(movies.data)
+    #Build the similarity
+    similarity = UserSimilarity(model, pearson_correlation)
+    #Build the User based recommender
+    recommender = UserBasedRecommender(model, similarity, with_preference=True)
+    #Recommend items for the user 5 (Toby)
+    recommender.recommend(5)
+
+    items_strategy = ItemsNeighborhoodStrategy()
+    similarity = ItemSimilarity(model, euclidean_distances)
+    recsys = ItemBasedRecommender(model, similarity, items_strategy)
+#     recsys.recommend('Leopoldo Pires')
+
+#     >>> recsys.recommend('Leopoldo Pires')
+#     ['Just My Luck', 'You, Me and Dupree']
+#     >>> #Return the 2 explanations for the given recommendation.
+#     >>> recsys.recommended_because('Leopoldo Pires', 'Just My Luck',2)
+#     ['The Night Listener', 'Superman Returns']
 
     try:
         with open('data/data.json') as file:
@@ -31,6 +47,7 @@ def recommend():
 
     global data
     data = json_normalize(list)
+    model = MatrixPreferenceDataModel(data)
 
 # beers = df.beer_name.unique()
 #     apps = data.Name.unique()
