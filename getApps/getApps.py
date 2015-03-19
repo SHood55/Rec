@@ -5,21 +5,12 @@ GOOGLE_LOGIN = GOOGLE_PASSWORD = AUTH_TOKEN = None
 
 import sys
 from pprint import pprint
-
 from googleplay import GooglePlayAPI
 from helpers import sizeof_fmt
 import config
 
 
 def run(packagename):
-
-
-#         print "Usage: %s packagename [filename]"
-#         print "Download an app."
-#         print "If filename is not present, will write to packagename.apk."
-
-
-
 
     if (len(sys.argv) == 3):
         filename = sys.argv[2]

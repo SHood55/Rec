@@ -8,7 +8,6 @@ import json
 from BaseHTTPServer import BaseHTTPRequestHandler
 from urlparse import urlparse
 
-
 def getIP():
     print "getting ip"
     r = requests.get("http://jsonip.com")
@@ -25,9 +24,8 @@ def run(server_class=BaseHTTPServer.HTTPServer):
     handler = MyHandler
     server_address = (ip, port)
     httpd = server_class(server_address, handler)
-    print "starting server at", ip+":"+port
+    print "starting server at", str(ip)+":"+str(port)
     httpd.serve_forever()
-    print "started"
 
 class MyHandler(BaseHTTPRequestHandler):
     def do_GET(self):
@@ -36,7 +34,12 @@ class MyHandler(BaseHTTPRequestHandler):
         self.send_header('Content-type',    'text/html')
         self.end_headers()
         print self.path
+        print "hi"
         hi = urlparse(self.path)
+        if(hi.path == "/replace"):
+            print "replace app called"
+            main.replaceRequest(hi.query)
+           #findReplacement(hi.query)#find similar apps, then send list rated by most secure
         self.wfile.write(hi.query)
 
     def do_POST(self):
