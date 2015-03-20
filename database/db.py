@@ -4,7 +4,7 @@ Created on Mar 18, 2015
 @author: Wschive
 '''
 import MySQLdb
-
+from data import App
 
 def connect():
     db = MySQLdb.connect(host="mysql.stud.ntnu.no", # your host, usually localhost
@@ -32,8 +32,24 @@ def getAll():
     for row in connect.cursor.fetchall() :
         print row[0]
 
+def getApp(name):
+    connect.cursor.execute("SELECT 1 FROM App WHERE name='%s'" % (name))
+    row = connect.cursor.fetchone()
+    app = App(name)
+    app.analysis = row["analysis"]
+    app.similar = row["similar"]
+    app.uploaded = row["uploaded"]
+
+    return app
+
+
+    return connect.cursor
+
 def doesExist(name):
     #returns 1 if found, 0 if not
-    connect.cursor.execute("SELECT EXISTS(SELECT 1 FROM App WHERE name = '%s')"% (name))
+    connect.cursor.execute("SELECT EXISTS(SELECT 1 FROM App WHERE name = '%s')" % (name))
     result = connect.cursor.fetchone()
     return result[0] == 1
+
+
+

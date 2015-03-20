@@ -52,20 +52,38 @@ def replaceRequest(name):
     if(db.doesExist(name)):
         app = db.getApp(name)
     else:
-        downloadApp(name)
+        app = downloadApp(name)
+        db.saveApp(app)
+
+
+    return #list of suggested apps
+
+
 
 def downloadApp(name):
+    appInfo = getAppInfo(name)
     app = App(name)
-    getApps.run(name)
-    app.analysis = risk.run(name)
-#    app.version = on hold. needed? write about this. how to get?
-    app.similar =
+    if(appInfo["price"] == "free"):
+        getApps.run(name)
+        app.analysis = risk.run(name)
+        extraInfo = appInfo["additionalInfo"]
+        app.published = extraInfo["datePublished"]
+        app.similar = appInfo["recommendedApps"]
+        app.url  = appInfo["playStoreUrl"]
+        app.logo = appInfo["logo"]
+        return app
+
+
+# returns json with all the info
 def getAppInfo(name):
-#   works, but limited amount of calls
+    file= open("../data/apkinfo")
+    data = json.loads(file)
+    return data
+#    works, but limited amount of calls
 #     apiKey = {"key" :"9494f057c1a1a67ab30e5e7afdc6afe2"}
 #     r = requests.get("http://api.playstoreapi.com/v1.1/apps/"+name, params = apiKey)
 #     data = json.loads(r.content)
-#     print data
+#     return data
 #     print data["recommendedApps"]
 
 if __name__ == "__main__" :
