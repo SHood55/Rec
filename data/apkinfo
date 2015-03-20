@@ -1,0 +1,386 @@
+{
+  "refreshDate": 1426595059041,
+  "packageID": "no.nrk.yr",
+  "appName": "Yr",
+  "developer": "NRK",
+  "category": "Weather",
+  "logo": "https://lh5.ggpht.com/cgARctppNGjUG2UjiZyFl9FTvlSkqx09V_uqiK2lrNDsCqKYL7zkcWEkvvJR1CqeShM=w300",
+  "price": "free",
+  "whatsNew": "The Yr app finally supports widgets, and you can choose between 2 versions: Small (4 x 1) containing forecast only, or big (4 x 2) containing forecast and a clock.When you have added the widget to your start screen, you will get the forecast for the next 24 hours (6 hours interval) for your favourite location (as chosen in the Yr app). You can open the app by pressing the widget, and the transparency of the widget can be adjusted in the app's settings.",
+  "whatsNewHTML": " <h1 class=\"heading\"> What's New </h1> <div class=\"recent-change\">The Yr app finally supports widgets, and you can choose between 2 versions: Small (4 x 1) containing forecast only, or big (4 x 2) containing forecast and a clock.</div><div class=\"recent-change\">When you have added the widget to your start screen, you will get the forecast for the next 24 hours (6 hours interval) for your favourite location (as chosen in the Yr app). You can open the app by pressing the widget, and the transparency of the widget can be adjusted in the app's settings.</div> <div class=\"show-more-end\"></div> <div> <button class=\"play-button show-more small\"> Read more </button> <button class=\"play-button expand-close\"> <div class=\"close-image\"> </div> </button> </div> ",
+  "inAppPurchases": false,
+  "playStoreUrl": "https://play.google.com/store/apps/details?id=no.nrk.yr",
+  "thumbnails": [
+    "https://lh5.ggpht.com/3BJCXMLwbKeJIgGYKZONkNxZCDY2I72-teBr3_XVjQ18P5Qz9ox10o3n7rjoZAMybQ=h310",
+    "https://lh6.ggpht.com/qFxOV2FHNiLlwofVPRsW20_lCxCehIlbIiRKLY4MNCqqX-UqIo8PA-B7y3c2pX0Xup8=h310",
+    "https://lh4.ggpht.com/waO6dbSqaYIcm26x2fhYNQjLfwLFyHLIUjExCeRttGcItYUgQPTXvbLT3D0LLAmT-uk=h310",
+    "https://lh6.ggpht.com/6FuNd4zwHAkICb61bAV12ynraczhZmjQuFTrf6ISGbECGFxsf7Ah2v31Pa-2hY09oQ0b=h310",
+    "https://lh5.ggpht.com/-BPp2yQi2Ax8nTLh6A3JKM0Ykw9WMPCZ5Og580c6c0kzetRj3LuwJhB_zDbeQf3cn4g=h310",
+    "https://lh5.ggpht.com/gAmxM6fsE_Ll7RxzmSXvc-MBYCMJKyRzQXJ8oWqWuLyXj_cqtsQF6SCWX2W_JjCf09OO=h310",
+    "https://lh5.ggpht.com/p6UU4SqG5gszz7JhOeG0btyd-0PJAHlAZ678iTjTTytXLvBwaQnbFNEkEHG2RxgZYg=h310",
+    "https://lh3.ggpht.com/jnw4qxFcR_c01bLYnl5CS0zdl9WwnC-r7hOoewVX4zL5KCNO_yLAugsVY9pRESmJOv8=h310"
+  ],
+  "description": "Contains weather forecasts, textual forecasts, meteograms and extreme weather warnings.Tip: To see the meteogram, turn your phone to landscape mode when you are viewing a spesific place.Yr.no is a service from the Norwegian Meteorological Institute and NRK.",
+  "descriptionHTML": "Contains weather forecasts, textual forecasts, meteograms and extreme weather warnings.<p>Tip: To see the meteogram, turn your phone to landscape mode when you are viewing a spesific place.</p><p>Yr.no is a service from the Norwegian Meteorological Institute and NRK.</p><p></p>",
+  "score": "4.2",
+  "ratingHistogram": {
+    "1": "1,117",
+    "2": "746",
+    "3": "1,512",
+    "4": "4,218",
+    "5": "9,136"
+  },
+  "reviewers": 16729,
+  "topReviews": [
+    {
+      "reviewText": " Once you switch off the network, app will forgot forecast and shows only blank screen... i also do not like that it does not allow me to add location manually (have tried) without constantly locate me with GPS and WiFi. Yet YR has reputation of best weather forecast.   ",
+      "authorName": "Milan Aftanas",
+      "reviewTitle": "Works but has drawbacks",
+      "reviewDate": "March 5, 2015",
+      "score": 2
+    },
+    {
+      "reviewText": " Worked perfectly. After the latest update the app struggles with GPS problems   ",
+      "authorName": "Stephan Kistner",
+      "reviewTitle": "Update problems",
+      "reviewDate": "March 10, 2015",
+      "score": 3
+    },
+    {
+      "reviewText": " Glad to see the widgets! Take a look at the aix weather widget and combine it with your clock...and I will find a way to give you 6 out of 5 stars.   ",
+      "authorName": "Tom B",
+      "reviewTitle": "Almost there",
+      "reviewDate": "February 23, 2015",
+      "score": 4
+    },
+    {
+      "reviewText": " I am so glad there are finally widgets. But my favorite part of the app is the weather graph when you turn the phone in landscape. It would be perfect if we could use that graph as a widget.   ",
+      "authorName": "Jason Toms",
+      "reviewTitle": "Finally, widgets!",
+      "reviewDate": "February 20, 2015",
+      "score": 4
+    },
+    {
+      "reviewText": " Do not wanna show weather in my district, shows Oslo as fav city,but not mine. Refresh button doesn't work   ",
+      "authorName": "Tanya Avakyan",
+      "reviewTitle": "Bugs",
+      "reviewDate": "February 24, 2015",
+      "score": 4
+    },
+    {
+      "reviewText": " Would be great to have the option to display the week number and the meteogram in the widget.   ",
+      "authorName": "JnJ Tredoux",
+      "reviewTitle": "Widgets at last",
+      "reviewDate": "February 24, 2015",
+      "score": 3
+    },
+    {
+      "reviewText": " You have to enter your location manually.   ",
+      "authorName": "Jan Drozd",
+      "reviewTitle": "Doesn't work with GPS",
+      "reviewDate": "March 10, 2015",
+      "score": 2
+    },
+    {
+      "reviewText": " Uninstalling.   ",
+      "authorName": "Orchid Grass",
+      "reviewTitle": "Now use the admob Adware library",
+      "reviewDate": "February 24, 2015",
+      "score": 1
+    },
+    {
+      "reviewText": " Several apps released the last few days utilizing the full potential of Android design principles. The feature that gives you a meteogram when you flip the device is very neat and a little innovation in itself.   ",
+      "authorName": "Bjørn Krogh Robak",
+      "reviewTitle": "It seems NRK finally have learned",
+      "reviewDate": "February 21, 2015",
+      "score": 5
+    },
+    {
+      "reviewText": " After using for almost 4 months now when I want to see forecast for day and I click the current forecast it says that location is not discover and wait for GPS.  My GPS is on and for current weather app shows current location.  Using Samsung S5. Restart of phone and also reload of app doesn't solve it.   ",
+      "authorName": "Narsinh Modani",
+      "reviewTitle": "For cast not appearing",
+      "reviewDate": "March 4, 2015",
+      "score": 2
+    },
+    {
+      "reviewText": " But need 5x2 and 5x1 for larger screens...   ",
+      "authorName": "Václav Vlček",
+      "reviewTitle": "Nice widgets",
+      "reviewDate": "February 25, 2015",
+      "score": 4
+    },
+    {
+      "reviewText": " Nice weather app, bit different to most. Wigdets option doesn't on my phone, and only get the 4x2 option on my tablet....   ",
+      "authorName": "Simon Roffey",
+      "reviewTitle": "Nice change",
+      "reviewDate": "February 21, 2015",
+      "score": 4
+    },
+    {
+      "reviewText": " Great app. Simple. Weather forecasts when you need them.   ",
+      "authorName": "Cary Wisp",
+      "reviewTitle": "Great app",
+      "reviewDate": "March 12, 2015",
+      "score": 5
+    },
+    {
+      "reviewText": " But needs 5x2 and 5x1 widgets as well...   ",
+      "authorName": "Bjørn B",
+      "reviewTitle": "Nice",
+      "reviewDate": "February 20, 2015",
+      "score": 4
+    },
+    {
+      "reviewText": " Find this the most accurate of all the forecast apps I have. Excellent.   ",
+      "authorName": "Brent Diver",
+      "reviewTitle": "Accurate",
+      "reviewDate": "February 25, 2015",
+      "score": 5
+    },
+    {
+      "reviewText": " No idea or instructions as to how I can install the widget on my phone,  accurate forecasts though   ",
+      "authorName": "Ann Jackson",
+      "reviewTitle": "Accurate but can't find widget",
+      "reviewDate": "February 24, 2015",
+      "score": 4
+    },
+    {
+      "reviewText": " Widget shows error message instead of time when no internet connection. Please fix it!   ",
+      "authorName": "Vadim Sh",
+      "reviewTitle": "the best",
+      "reviewDate": "February 28, 2015",
+      "score": 3
+    },
+    {
+      "reviewText": " Most accurate weather app... Love the new Widgets. :)   ",
+      "authorName": "Neil McGonigle",
+      "reviewTitle": "Excellent accuracy but needs widget.",
+      "reviewDate": "February 21, 2015",
+      "score": 5
+    },
+    {
+      "reviewText": " Please fix...   ",
+      "authorName": "Peter Fabian",
+      "reviewTitle": "Can't add a new city after the last upgrade",
+      "reviewDate": "February 22, 2015",
+      "score": 2
+    },
+    {
+      "reviewText": " No local forecast (no GPS) after update. Please fix it   ",
+      "authorName": "Renatas Dausinas",
+      "reviewTitle": "No GPS",
+      "reviewDate": "February 26, 2015",
+      "score": 3
+    },
+    {
+      "reviewText": " Thanks for developing a widget! However, data refreshing problem has started after you have released the widget. Please update it. Yr.no itself is much more accurate than any other weather app.   ",
+      "authorName": "A Google User",
+      "reviewTitle": "Fix the widget please!",
+      "reviewDate": "March 4, 2015",
+      "score": 3
+    },
+    {
+      "reviewText": " If the location option is enabled, the widget seem to consume extreme amount of battery   ",
+      "authorName": "Espen Solbu",
+      "reviewTitle": "Widgets consume lot of battery if location is enabled",
+      "reviewDate": "February 22, 2015",
+      "score": 3
+    },
+    {
+      "reviewText": " To get 5 stars make it so that when I press the time I get directed to the clock app. When I press date calender opens. This is the only thing we need. YR is almost perfect!!   ",
+      "authorName": "Noc C",
+      "reviewTitle": "Widgets!",
+      "reviewDate": "February 23, 2015",
+      "score": 4
+    },
+    {
+      "reviewText": " Two things missing on the widget. Current temperature and there should be an option to directly access meteo graph for current location by clicking on the widget. Still the app is great!   ",
+      "authorName": "Donald Rumac",
+      "reviewTitle": "Perfect",
+      "reviewDate": "February 22, 2015",
+      "score": 4
+    },
+    {
+      "reviewText": " This trustworthy weather app is great. Missing a 5 x 2 widget, though...   ",
+      "authorName": "Andreas Wallin",
+      "reviewTitle": "Trustworthy",
+      "reviewDate": "February 21, 2015",
+      "score": 4
+    },
+    {
+      "reviewText": " Very accurate   ",
+      "authorName": "Joseph Van Tonder",
+      "reviewTitle": "Good",
+      "reviewDate": "March 8, 2015",
+      "score": 3
+    },
+    {
+      "reviewText": " love this new widget thing. looks cool on me homescreen. forecast dissapears after few minutes being offline though. it'd be nice if it lasted a while, like a day or so..   ",
+      "authorName": "Lucky Richter",
+      "reviewTitle": "cool",
+      "reviewDate": "March 3, 2015",
+      "score": 4
+    },
+    {
+      "reviewText": "Gardener   ",
+      "authorName": "Nannette Thornton",
+      "reviewTitle": "",
+      "reviewDate": "February 21, 2015",
+      "score": 5
+    },
+    {
+      "reviewText": "Yes   ",
+      "authorName": "bogdan ailincai",
+      "reviewTitle": "",
+      "reviewDate": "March 6, 2015",
+      "score": 4
+    },
+    {
+      "reviewText": "Beautiful widgets   ",
+      "authorName": "Haris Buko",
+      "reviewTitle": "",
+      "reviewDate": "February 22, 2015",
+      "score": 5
+    },
+    {
+      "reviewText": " Excellent app for getting pretty reliable forecasts (not an easy thing here in Ireland). Would recommend.   ",
+      "authorName": "Eoghan Kenny",
+      "reviewTitle": "Great weather app!",
+      "reviewDate": "January 12, 2015",
+      "score": 4
+    },
+    {
+      "reviewText": "Love it. Great. Use it all the time. Liking the new high res image. Accurate. Located in UK.   ",
+      "authorName": "Matt Tytheridge",
+      "reviewTitle": "",
+      "reviewDate": "September 18, 2014",
+      "score": 5
+    },
+    {
+      "reviewText": " When it works I love it, but I really dislike the fact that it only works on wifi and it could use couple of more options.   ",
+      "authorName": "Tihana B",
+      "reviewTitle": "Works only on WiFi",
+      "reviewDate": "December 27, 2014",
+      "score": 3
+    },
+    {
+      "reviewText": " Wind speed was not correct but i find another part of my town that shows better data   ",
+      "authorName": "A Google User",
+      "reviewTitle": "Ok",
+      "reviewDate": "October 25, 2014",
+      "score": 3
+    },
+    {
+      "reviewText": " App not working when on mobile data. Can't synchronize, \"an error ocurred\". When on wifi, works fine. SGS4 mini, KitKat.   ",
+      "authorName": "Branko Trajkov",
+      "reviewTitle": "Branko",
+      "reviewDate": "September 27, 2014",
+      "score": 1
+    },
+    {
+      "reviewText": " App doesnt work when connected with mobile data. Really frustrating if your on the move... Please resolve   ",
+      "authorName": "Alanna Donegan",
+      "reviewTitle": "Doesnt work on mobile data",
+      "reviewDate": "January 27, 2015",
+      "score": 3
+    },
+    {
+      "reviewText": " It is quite accurate in my location in Västernorrland, Sweden however UX should improve for mobile devices. The numbers are quite small, hard to read especially under the sunlight, few customization options and the overall app feels a little outdated.   ",
+      "authorName": "Luis Carlos",
+      "reviewTitle": "-2 for User Experience (UX)",
+      "reviewDate": "January 9, 2015",
+      "score": 3
+    },
+    {
+      "reviewText": "Nice and useful app, I especially like the automatic switching to meteogram on orientation change. It has some flaws though; first, the meteogram is in Norwegian while it should load the English or whatever interface language is selected. Second, it won't install on my tablet, claiming incompatibility, but I don't think there is a valid reason for it - the only thing app needs is location, and that is provided by the device even when there is no GPS hardware. Fix those flaws and I'll give five stars!   ",
+      "authorName": "A. Kromicus",
+      "reviewTitle": "",
+      "reviewDate": "February 1, 2015",
+      "score": 4
+    },
+    {
+      "reviewText": " App doesn't connect (an error occurred) when using the app on mobile data. However, the app does work well on WiFi - hence 2 stars.   ",
+      "authorName": "Garrett Killeen",
+      "reviewTitle": "Mobile Data?",
+      "reviewDate": "November 3, 2014",
+      "score": 2
+    },
+    {
+      "reviewText": " Can't save station with ' symbol, such as L'viv, Dnipropetrovs'k etc.   ",
+      "authorName": "Sergiy Khoruzhin",
+      "reviewTitle": "Good, but...",
+      "reviewDate": "December 11, 2014",
+      "score": 4
+    }
+  ],
+  "additionalInfo": [
+    {
+      "datePublished": "February 20, 2015"
+    },
+    {
+      "fileSize": "Varies with device"
+    },
+    {
+      "numDownloads": "1,000,000 - 5,000,000"
+    },
+    {
+      "softwareVersion": "Varies with device"
+    },
+    {
+      "operatingSystems": "Varies with device"
+    },
+    {
+      "contentRating": "Low Maturity"
+    }
+  ],
+  "recommendedApps": [
+    "se.stephanson.YRWidgetHD",
+    "com.macropinch.swan",
+    "com.droid27.transparentclockweather",
+    "com.accuweather.android",
+    "com.exovoid.weather.app",
+    "com.devexpert.weather",
+    "com.yahoo.mobile.client.android.weather",
+    "com.droid27.senseflipclockweather",
+    "com.Elecont.WeatherClock",
+    "com.mg.android",
+    "com.tennumbers.animatedwidgetsfree",
+    "factory.widgets.ThreeDDigitalWeatherClock",
+    "com.apalon.weatherlive.free",
+    "weather.widget.forecast",
+    "com.samruston.weather",
+    "mobi.infolife.ezweather.widget.oxygen",
+    "no.nrk.tv",
+    "no.nrk.mobil.radio",
+    "air.no.nrksuper.app",
+    "air.burkaellerninja",
+    "no.nrk.mobil.app",
+    "air.no.nrk.tv",
+    "no.nrkp3.rroneliner",
+    "no.nrk.nrkjodi",
+    "no.nrk.mobil.nrkp3",
+    "no.bouvet.nrkut"
+  ],
+  "permissions": [
+    {
+      "title": "precise location (gps and network-based)",
+      "androidPermissionCode": "android.permission.access_fine_location",
+      "description": "allows the app to get your precise location using the global positioning system (gps) or network location sources such as cell towers and wi-fi. these location services must be turned on and available to your device for the app to use them. apps may use this to determine where you are, and may consume additional battery power."
+    },
+    {
+      "title": "approximate location (network-based)",
+      "androidPermissionCode": "android.permission.access_coarse_location",
+      "description": "allows the app to get your approximate location. this location is derived by location services using network location sources such as cell towers and wi-fi. these location services must be turned on and available to your device for the app to use them. apps may use this to determine approximately where you are."
+    },
+    {
+      "title": "view network connections",
+      "androidPermissionCode": "android.permission.access_network_state",
+      "description": "allows the app to view information about network connections such as which networks exist and are connected."
+    },
+    {
+      "title": "full network access",
+      "androidPermissionCode": "android.permission.internet",
+      "description": "allows the app to create network sockets and use custom network protocols. the browser and other applications provide means to send data to the internet, so this permission is not required to send data to the internet."
+    }
+  ]
+}
