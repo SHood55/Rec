@@ -5,8 +5,8 @@ public class Main {
     public static void main(String[] args) {
         // write your code here
         System.out.println("start");
-        String email = "wilhelmws@gmail.com";
-        String password = "1.9.Alpha";
+        String email = "mail";
+        String password = "pass";
         MarketSession session = new MarketSession();
         session.login(email, password);
 //        session.getContext.setAndroidId(myAndroidId);
