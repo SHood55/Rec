@@ -4,7 +4,8 @@ Created on Mar 18, 2015
 @author: Wschive
 '''
 import MySQLdb
-from data import App
+import ast
+from data.App import App
 
 def connect():
     db = MySQLdb.connect(host="mysql.stud.ntnu.no", # your host, usually localhost
@@ -18,9 +19,9 @@ def connect():
     print "DB connected and cursor created"
 
 def saveApp(app):
-    if(app.name and app.version and app.risks and app.similar):
-        connect.cursor.execute("save this shizzle")
-        connect.cursor.commit
+    if(app):
+        connect.cursor.execute("INSERT INTO `App`(`name`, `analysis`, `similar`, `published`, `logoUrl`, `play_store_url`) VALUES (%s,%s,%s,%s,%s,%s)" % (app.name,app.analysis,app.similar,app.published,app.logo,app.url))
+        connect.cursor.commit()
     else:
         print "element was missing from full App"
 
@@ -33,18 +34,25 @@ def getAll():
         print row[0]
 
 def getApp(name):
-    connect.cursor.execute("SELECT 1 FROM App WHERE name='%s'" % (name))
+    connect.cursor.execute("SELECT * FROM App WHERE name='%s'" % (name))
     row = connect.cursor.fetchone()
-    app = App(name)
-    app.analysis = row["analysis"]
-    app.similar = row["similar"]
-    app.uploaded = row["uploaded"]
+    analysis = ast.literal_eval(row[1])
+    similar = ast.literal_eval(row[2])
+    published = row[3]
+    logo= row[4]
+    url = row[5]
+    app = App(name, url, logo, published, similar, analysis)
 
     return app
 
-
-    return connect.cursor
-
+def getJSonApp(name):
+    app = getApp(name)
+    data = {}
+    data["analysis"] = app.analysis
+    data["logo"] = app.logo
+    data["url"] = app.url
+    data["name"] = app.name
+    return data
 def doesExist(name):
     #returns 1 if found, 0 if not
     connect.cursor.execute("SELECT EXISTS(SELECT 1 FROM App WHERE name = '%s')" % (name))
