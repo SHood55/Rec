@@ -27,7 +27,7 @@ def run(server_class=BaseHTTPServer.HTTPServer):
     ip = getIP()
     port = 8888
     handler = MyHandler
-    server_address = (ip, port)
+    server_address = ("localhost", port)
     httpd = server_class(server_address, handler)
     print "starting server at", str(ip)+":"+str(port)
     httpd.serve_forever()
@@ -74,19 +74,21 @@ def replaceRequest(name):
 
 def getOrDL(name):
     app =db.getApp(name)
-#     try:
-#         app = db.getApp(name)#add if published is old, redownload
-#     except:
-#         app = downloadApp(name)
-#         if(app is not None):
-#             db.saveApp(app)
+    print "getOrDL", name
+    try:
+        app = db.getApp(name)#add if published is old, redownload
+    except:
+        app = downloadApp(name)
+        if(app is not None):
+            db.saveApp(app)
     return app
 
 def getValue(app):
-    return app.analysis["Value"]
+    return app.analysis["VALUE"]
 
 
 def downloadApp(name):
+    print "downloadApp", name
     appInfo = getAppInfo(name)
     if(appInfo["price"] == "free"):
         getApps.run(name)
@@ -104,15 +106,16 @@ def downloadApp(name):
 
 # returns json with all the info
 def getAppInfo(name):
-    file= open("data/apkinfo.txt")
-    data = json.load(file)
-    print "getAppInfo"
-    return data
+    if(name == "no.nrk.yr"):
+        file= open("data/apkinfo.txt")
+        data = json.load(file)
+        return data
 #    works, but limited amount of calls
-#     apiKey = {"key" :"9494f057c1a1a67ab30e5e7afdc6afe2"}
-#     r = requests.get("http://api.playstoreapi.com/v1.1/apps/"+name, params = apiKey)
-#     data = json.loads(r.content)
-#     return data
+    print "getting Appinfo for ", name
+    apiKey = {"key" :"9494f057c1a1a67ab30e5e7afdc6afe2"}
+    r = requests.get("http://api.playstoreapi.com/v1.1/apps/"+name, params = apiKey)
+    data = json.loads(r.content)
+    return data
 #     print data["recommendedApps"]
 
 
