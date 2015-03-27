@@ -11,6 +11,9 @@ from data.App import App
 from database import db
 from getApps import getApps
 from risk import risk
+import io
+import os.path
+
 
 
 def getIP():
@@ -73,7 +76,7 @@ def replaceRequest(name):
     return app.similar#list of suggested apps
 
 def getOrDL(name):
-    app =db.getApp(name)
+#     app =db.getApp(name)
     print "getOrDL", name
     try:
         app = db.getApp(name)#add if published is old, redownload
@@ -91,8 +94,11 @@ def downloadApp(name):
     print "downloadApp", name
     appInfo = getAppInfo(name)
     if(appInfo["price"] == "free"):
-        getApps.run(name)
-        analysis = risk.run(name)
+        try:
+            analysis = risk.run(name)
+        except:    
+            getApps.run(name)
+            analysis = risk.run(name)
         extraInfo = appInfo["additionalInfo"]
         published = extraInfo[0]
         similar = appInfo["recommendedApps"]#is a list
@@ -106,15 +112,19 @@ def downloadApp(name):
 
 # returns json with all the info
 def getAppInfo(name):
-    if(name == "no.nrk.yr"):
-        file= open("data/apkinfo.txt")
+    
+    if(os.path.isfile("data/"+name+".txt") ):
+        file= open("data/"+name+".txt")
         data = json.load(file)
         return data
+    
 #    works, but limited amount of calls
     print "getting Appinfo for ", name
     apiKey = {"key" :"9494f057c1a1a67ab30e5e7afdc6afe2"}
     r = requests.get("http://api.playstoreapi.com/v1.1/apps/"+name, params = apiKey)
     data = json.loads(r.content)
+    with io.open("data/" + name + ".txt", 'w', encoding='utf-8') as f:
+       f.write(data)
     return data
 #     print data["recommendedApps"]
 
