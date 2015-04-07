@@ -83,11 +83,15 @@ def getOrDL(name):
     except:
         app = downloadApp(name)
         if(app is not None):
-            db.saveApp(app)
+            try:
+                db.saveApp(app)
+            except:
+                print "app exists in db", app.name
     return app
 
 def getValue(app):
-    return app.analysis["VALUE"]
+    fuzzy = app.analysis["FuzzyRisk"]
+    return fuzzy["VALUE"]
 
 
 def downloadApp(name):
@@ -113,8 +117,8 @@ def downloadApp(name):
 # returns json with all the info
 def getAppInfo(name):
     
-    if(os.path.isfile("data/"+name+".txt") ):
-        file= open("data/"+name+".txt")
+    if(os.path.isfile("data/"+name+".json") ):
+        file= open("data/"+name+".json")
         data = json.load(file)
         return data
     
@@ -123,8 +127,8 @@ def getAppInfo(name):
     apiKey = {"key" :"9494f057c1a1a67ab30e5e7afdc6afe2"}
     r = requests.get("http://api.playstoreapi.com/v1.1/apps/"+name, params = apiKey)
     data = json.loads(r.content)
-    with io.open("data/" + name + ".txt", 'w', encoding='utf-8') as f:
-       f.write(data)
+    with open("data/" + name + ".json", 'w') as f:
+       f.write(json.dumps(data))
     return data
 #     print data["recommendedApps"]
 
