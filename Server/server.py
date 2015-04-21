@@ -67,7 +67,8 @@ def replaceRequest(name):
             temp = getOrDL(similar)
             if(temp is not None):
                 resultList.append(temp)
-        app.similar = sorted(resultList, key=getValue)#sorted list of similar apps
+#         app.similar = sorted(resultList, key=getValue)#sorted list of similar apps
+        app.similar = resultList
     else:
         print "similar apps list does not exist"
         return ["no similar apps"]
@@ -83,6 +84,7 @@ def getOrDL(name):
     except:
         app = downloadApp(name)
         if(app is not None):
+            db.saveApp(app)
             try:
                 db.saveApp(app)
             except:
@@ -99,16 +101,18 @@ def downloadApp(name):
     appInfo = getAppInfo(name)
     if(appInfo["price"] == "free"):
         try:
-            analysis = risk.run(name)
+            permissions = risk.permissions(name)
+#             analysis = risk.run(name)
         except:    
             getApps.run(name)
-            analysis = risk.run(name)
+            permissions = risk.permissions(name)
+#             analysis = risk.run(name)
         extraInfo = appInfo["additionalInfo"]
         published = extraInfo[0]
         similar = appInfo["recommendedApps"]#is a list
         url  = appInfo["playStoreUrl"]
         logo = appInfo["logo"]
-        app = App(name, url, logo, published, similar, analysis)
+        app = App(name, url, logo, published, similar, permissions)
         return app
     print "app " + name + " is not free, will not be downloaded"
     return None

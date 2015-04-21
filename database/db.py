@@ -21,9 +21,9 @@ def connect():
     print "DB connected and cursor created"
 
 def saveApp(app):
-    sql = """INSERT INTO `App`(`name`, `analysis`, `similar`, `published`, `logoUrl`, `play_store_url`) VALUES (%s,%s,%s,%s,%s,%s)"""
+    sql = """INSERT INTO `App`(`name`, `permissions`, `similar`, `published`, `logoUrl`, `play_store_url`) VALUES (%s,%s,%s,%s,%s,%s)"""
     if(app):
-        connect.cursor.execute(sql, (app.name,json.dumps(app.analysis),json.dumps(app.similar),json.dumps(app.published),app.logo,app.url))
+        connect.cursor.execute(sql, (app.name,json.dumps(app.permissions),json.dumps(app.similar),json.dumps(app.published),app.logo,app.url))
         connect.db.commit()
     else:
         print "element was missing from full App"
@@ -41,19 +41,19 @@ def getApp(name):
     sql = """SELECT * FROM App WHERE name =%s"""
     connect.cursor.execute(sql,[name])
     row = connect.cursor.fetchone()
-    analysis = ast.literal_eval(row[1])
+    permissions = ast.literal_eval(row[1])
     similar = ast.literal_eval(row[2])
     published = row[3]
     logo= row[4]
     url = row[5]
-    app = App(name, url, logo, published, similar, analysis)
+    app = App(name, url, logo, published, similar, permissions)
 
     return app
 
 def getJSonApp(name):
     app = getApp(name)
     data = {}
-    data["analysis"] = app.analysis
+    data["permissions"] = app.permissions
     data["logo"] = app.logo
     data["url"] = app.url
     data["name"] = app.name

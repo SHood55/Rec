@@ -31,7 +31,10 @@ def run(name,dir = ""):
 def permissions(name, dir=""):
     
     a = APK(dir+name+".apk")
-    print a.permissions
+    
+    #TODO: append list with score from watchdog
+    
+    return a.permissions
     
 
 
