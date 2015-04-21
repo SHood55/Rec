@@ -44,10 +44,6 @@ def main() :
 #     print data
 #     print data["recommendedApps"]
 
-    risk.permissions(name)
-
-
-
     db.connect()
     server.run()
     print "it ran!"
