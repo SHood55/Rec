@@ -2,7 +2,7 @@
 from androguard.core.bytecodes import apk
 from androguard.core import androconf
 from androguard.core.analysis import risk
-
+from androguard.core.bytecodes.apk import APK
 
 def display_result(res) :
 
@@ -28,6 +28,10 @@ def run(name,dir = ""):
     else:
         print "ret_type was not APK"
 
-
+def permissions(name, dir=""):
+    
+    a = APK(dir+name+".apk")
+    print a.permissions
+    
 
 

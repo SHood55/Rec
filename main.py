@@ -43,6 +43,11 @@ def main() :
 #     data = json.loads(r.content)
 #     print data
 #     print data["recommendedApps"]
+
+    risk.permissions(name)
+
+
+
     db.connect()
     server.run()
     print "it ran!"
