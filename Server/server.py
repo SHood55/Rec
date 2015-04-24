@@ -30,7 +30,7 @@ def run(server_class=BaseHTTPServer.HTTPServer):
     ip = getIP()
     port = 8888
     handler = MyHandler
-    server_address = ("localhost", port)
+    server_address = (ip, port)
     httpd = server_class(server_address, handler)
     print "starting server at", str(ip)+":"+str(port)
     httpd.serve_forever()
@@ -56,11 +56,11 @@ class MyHandler(BaseHTTPRequestHandler):
 def createReplaceResponse(raw):
     list = []
     for app in raw:
-        list.append(db.getJSonApp(app.name))
+        list.append(db.getJSonApp(app.packageName))
     return json.dumps(list)
 
-def replaceRequest(name):
-    app = getOrDL(name)
+def replaceRequest(packageName):
+    app = getOrDL(packageName)
     resultList = []
     if(app.similar):
         for similar in app.similar:
@@ -76,19 +76,19 @@ def replaceRequest(name):
 
     return app.similar#list of suggested apps
 
-def getOrDL(name):
+def getOrDL(packageName):
 #     app =db.getApp(name)
-    print "getOrDL", name
+    print "getOrDL", packageName
     try:
-        app = db.getApp(name)#add if published is old, redownload
+        app = db.getApp(packageName)#add if published is old, redownload
     except:
-        app = downloadApp(name)
+        app = downloadApp(packageName)
         if(app is not None):
             db.saveApp(app)
             try:
                 db.saveApp(app)
             except:
-                print "app exists in db", app.name
+                print "app exists in db", app.packageName
     return app
 
 def getValue(app):
@@ -96,42 +96,42 @@ def getValue(app):
     return fuzzy["VALUE"]
 
 
-def downloadApp(name):
-    print "downloadApp", name
-    appInfo = getAppInfo(name)
+def downloadApp(packageName):
+    print "downloadApp", packageName
+    appInfo = getAppInfo(packageName)
     if(appInfo["price"] == "free"):
         try:
-            permissions = risk.permissions(name)
+            permissions = risk.permissions(packageName)
 #             analysis = risk.run(name)
-        except:    
-            getApps.run(name)
-            permissions = risk.permissions(name)
+        except:
+            getApps.run(packageName)
+            permissions = risk.permissions(packageName)
 #             analysis = risk.run(name)
-        extraInfo = appInfo["additionalInfo"]
-        published = extraInfo[0]
+        s = appInfo["description"]
+        infoline = s.split(".",1)[0]
         similar = appInfo["recommendedApps"]#is a list
-        url  = appInfo["playStoreUrl"]
         logo = appInfo["logo"]
-        app = App(name, url, logo, published, similar, permissions)
+        appname = appInfo["appName"]
+        app = App(appname, packageName, logo, infoline, similar, permissions)
         return app
-    print "app " + name + " is not free, will not be downloaded"
+    print "app " + packageName + " is not free, will not be downloaded"
     return None
 
 
 # returns json with all the info
-def getAppInfo(name):
-    
-    if(os.path.isfile("data/"+name+".json") ):
-        file= open("data/"+name+".json")
+def getAppInfo(packageName):
+
+    if(os.path.isfile("data/"+packageName+".json") ):
+        file= open("data/"+packageName+".json")
         data = json.load(file)
         return data
-    
+
 #    works, but limited amount of calls
-    print "getting Appinfo for ", name
+    print "getting Appinfo for ", packageName
     apiKey = {"key" :"9494f057c1a1a67ab30e5e7afdc6afe2"}
-    r = requests.get("http://api.playstoreapi.com/v1.1/apps/"+name, params = apiKey)
+    r = requests.get("http://api.playstoreapi.com/v1.1/apps/"+packageName, params = apiKey)
     data = json.loads(r.content)
-    with open("data/" + name + ".json", 'w') as f:
+    with open("data/" + packageName + ".json", 'w') as f:
        f.write(json.dumps(data))
     return data
 #     print data["recommendedApps"]

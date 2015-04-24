@@ -4,6 +4,8 @@ from androguard.core import androconf
 from androguard.core.analysis import risk
 from androguard.core.bytecodes.apk import APK
 
+
+
 def display_result(res) :
 
     for i in res :
@@ -29,12 +31,12 @@ def run(name,dir = ""):
         print "ret_type was not APK"
 
 def permissions(name, dir=""):
-    
+
     a = APK(dir+name+".apk")
-    
+
     #TODO: append list with score from watchdog
-    
+
     return a.permissions
-    
+
 
 

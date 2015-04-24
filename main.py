@@ -1,13 +1,12 @@
 from risk import risk
 from recommend import recommender
-from Server import server
+from server import server
 from database import db
 import socket
 import sys
 from thread import *
 import traceback
 import json
-import requests
 import select
 import BaseHTTPServer, SimpleHTTPServer, ssl
 from data import App
@@ -45,6 +44,7 @@ def main() :
 #     print data["recommendedApps"]
 
     db.connect()
+
     server.run()
     print "it ran!"
 

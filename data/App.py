@@ -5,10 +5,10 @@ Created on Mar 18, 2015
 '''
 class App:
 
-    def __init__(self, name, url, logo, published, similar, permissions):
+    def __init__(self, name, packageName, logo, infoline, similar, permissions):
         self.name = name
-        self.url = url
         self.logo = logo
-        self.published = published
+        self.infoline = infoline
         self.similar = similar
         self.permissions = permissions
+        self.packageName = packageName
