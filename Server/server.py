@@ -31,7 +31,7 @@ def run(server_class=BaseHTTPServer.HTTPServer):
     ip = getIP()
     port = 8888
     handler = MyHandler
-    server_address = (ip, port)
+    server_address = ("localhost", port)
     httpd = server_class(server_address, handler)
     print "starting server at", str(ip)+":"+str(port)
     httpd.serve_forever()
@@ -47,9 +47,9 @@ class MyHandler(BaseHTTPRequestHandler):
         hi = urlparse(self.path)
         if(hi.path == "/replace"):
             print "replace app called"
-            rawResult = replaceRequest(hi.query)#list of appnames
-            self.wfile.write(createReplaceResponse(rawResult))
-           #findReplacement(hi.query)#find similar apps, then send list rated by most secure
+#             rawResult = replaceRequest(hi.query)#list of appnames
+#             self.wfile.write(createReplaceResponse(rawResult))
+            self.wfile.write(testRequest(hi.query))
 
     def do_POST(self):
         self.send_error(502, "not implemented")
@@ -57,7 +57,8 @@ class MyHandler(BaseHTTPRequestHandler):
 def createReplaceResponse(raw):
     list = []
     for app in raw:
-        list.append(db.getJSonApp(app.packageName))
+        unicodeString = db.getJSonApp(app.packageName)
+        list.append(unicodeString)
     return json.dumps(list)
 
 def replaceRequest(packageName):
@@ -138,4 +139,8 @@ def getAppInfo(packageName):
 #     print data["recommendedApps"]
 
 
-#     def do_OPTIONS(self):
+def testRequest(packageName):
+    return getApps.getPermissions(packageName)
+    
+    
+    

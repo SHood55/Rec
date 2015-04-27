@@ -33,3 +33,26 @@ def run(packagename):
     data = api.download(packagename, vc, ot)
     open(filename, "wb").write(data)
     print "Done"
+    
+def getPermissions(packageName, multiple = False):
+
+    api = GooglePlayAPI(config.ANDROID_ID)
+    api.login(config.GOOGLE_LOGIN, config.GOOGLE_PASSWORD, AUTH_TOKEN)
+
+    # Only one app
+    if (not multiple):
+        response = api.details(packageName)
+        result =  []
+        print "\n".join(i.encode('utf8') for i in response.docV2.details.appDetails.permission)
+        values = response.docV2.details.appDetails.permission._values
+        result = [x.encode('utf-8') for x in values]
+
+        return result
+
+    else: # More than one app
+        response = api.bulkDetails(packageName)
+        result = {}
+        for entry in response.entry:
+            if (not not entry.ListFields()): # if the entry is not empty
+                result[entry.doc.docid] = entry.doc.details.appDetails.permission
+        return result

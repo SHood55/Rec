@@ -1,6 +1,6 @@
 from risk import risk
 from recommend import recommender
-from server import server
+from Server import server
 from database import db
 import socket
 import sys
