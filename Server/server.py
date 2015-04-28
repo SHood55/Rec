@@ -26,12 +26,10 @@ def getIP():
 
 def run(server_class=BaseHTTPServer.HTTPServer):
 
-
-
     ip = getIP()
     port = 8888
     handler = MyHandler
-    server_address = ("localhost", port)
+    server_address = (ip, port)
     httpd = server_class(server_address, handler)
     print "starting server at", str(ip)+":"+str(port)
     httpd.serve_forever()
@@ -84,7 +82,8 @@ def getOrDL(packageName):
     try:
         app = db.getApp(packageName)#add if published is old, redownload
     except:
-        app = downloadApp(packageName)
+        app = requestApp(packageName)
+#         app = downloadApp(packageName)
         if(app is not None):
             db.saveApp(app)
             try:
@@ -96,6 +95,23 @@ def getOrDL(packageName):
 def getValue(app):
     fuzzy = app.analysis["FuzzyRisk"]
     return fuzzy["VALUE"]
+
+def requestApp(packageName):
+
+    similar = []
+    appList = []
+    similarDict = getApps.getSimilar(packageName)#Dict (packName, logo)
+    permissionDict = getApps.getPermissions(packageName)#Dict (realName, permissions)
+    for similars, permission in zip(similarDict, permissionDict):
+        appname = permission
+
+
+
+
+
+    app = App(appname, packageName, logo, infoline, similar, permissions)
+    return app
+
 
 
 def downloadApp(packageName):
@@ -110,7 +126,7 @@ def downloadApp(packageName):
             permissions = risk.permissions(packageName)
 #             analysis = risk.run(name)
         s = appInfo["description"]
-        infoline = s.split(".",1)[0]
+        infoline = s.split(".",1)[0]#not used
         similar = appInfo["recommendedApps"]#is a list
         logo = appInfo["logo"]
         appname = appInfo["appName"]
@@ -141,6 +157,5 @@ def getAppInfo(packageName):
 
 def testRequest(packageName):
     return getApps.getPermissions(packageName)
-    
-    
-    
+
+
