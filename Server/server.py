@@ -45,9 +45,8 @@ class MyHandler(BaseHTTPRequestHandler):
         hi = urlparse(self.path)
         if(hi.path == "/replace"):
             print "replace app called"
-#             rawResult = replaceRequest(hi.query)#list of appnames
-#             self.wfile.write(createReplaceResponse(rawResult))
-            self.wfile.write(testRequest(hi.query))
+            rawResult = replaceRequest(hi.query)#list of appnames
+            self.wfile.write(createReplaceResponse(rawResult))
 
     def do_POST(self):
         self.send_error(502, "not implemented")
@@ -85,7 +84,6 @@ def getOrDL(packageName):
         app = requestApp(packageName)
 #         app = downloadApp(packageName)
         if(app is not None):
-            db.saveApp(app)
             try:
                 db.saveApp(app)
             except:
@@ -98,64 +96,56 @@ def getValue(app):
 
 def requestApp(packageName):
 
-    similar = []
-    appList = []
-    similarDict = getApps.getSimilar(packageName)#Dict (packName, logo)
-    permissionDict = getApps.getPermissions(packageName)#Dict (realName, permissions)
-    for similars, permission in zip(similarDict, permissionDict):
-        appname = permission
+    permissionDict = getApps.getPermissions(packageName)#Dict (name: realName, permissions: permissions)
+    appname = permissionDict["name"]
+    logo = permissionDict["logo"]
+    similar = getApps.getOnlySimilar(packageName)
+    permissions = permissionDict["permissions"]
 
+    app = App(appname, packageName, logo, similar, permissions)
 
-
-
-
-    app = App(appname, packageName, logo, infoline, similar, permissions)
     return app
 
 
 
 def downloadApp(packageName):
-    print "downloadApp", packageName
-    appInfo = getAppInfo(packageName)
-    if(appInfo["price"] == "free"):
-        try:
-            permissions = risk.permissions(packageName)
-#             analysis = risk.run(name)
-        except:
-            getApps.run(packageName)
-            permissions = risk.permissions(packageName)
-#             analysis = risk.run(name)
-        s = appInfo["description"]
-        infoline = s.split(".",1)[0]#not used
-        similar = appInfo["recommendedApps"]#is a list
-        logo = appInfo["logo"]
-        appname = appInfo["appName"]
-        app = App(appname, packageName, logo, infoline, similar, permissions)
-        return app
-    print "app " + packageName + " is not free, will not be downloaded"
+#     print "downloadApp", packageName
+#     appInfo = getAppInfo(packageName)
+#     if(appInfo["price"] == "free"):
+#         try:
+#             permissions = risk.permissions(packageName)
+# #             analysis = risk.run(name)
+#         except:
+#             getApps.run(packageName)
+#             permissions = risk.permissions(packageName)
+# #             analysis = risk.run(name)
+#         s = appInfo["description"]
+#         infoline = s.split(".",1)[0]#not used
+#         similar = appInfo["recommendedApps"]#is a list
+#         logo = appInfo["logo"]
+#         appname = appInfo["appName"]
+#         app = App(appname, packageName, logo, infoline, similar, permissions)
+#         return app
+#     print "app " + packageName + " is not free, will not be downloaded"
     return None
 
 
 # returns json with all the info
 def getAppInfo(packageName):
-
-    if(os.path.isfile("data/"+packageName+".json") ):
-        file= open("data/"+packageName+".json")
-        data = json.load(file)
-        return data
-
-#    works, but limited amount of calls
-    print "getting Appinfo for ", packageName
-    apiKey = {"key" :"9494f057c1a1a67ab30e5e7afdc6afe2"}
-    r = requests.get("http://api.playstoreapi.com/v1.1/apps/"+packageName, params = apiKey)
-    data = json.loads(r.content)
-    with open("data/" + packageName + ".json", 'w') as f:
-       f.write(json.dumps(data))
-    return data
+#
+#     if(os.path.isfile("data/"+packageName+".json") ):
+#         file= open("data/"+packageName+".json")
+#         data = json.load(file)
+#         return data
+#
+# #    works, but limited amount of calls
+#     print "getting Appinfo for ", packageName
+#     apiKey = {"key" :"9494f057c1a1a67ab30e5e7afdc6afe2"}
+#     r = requests.get("http://api.playstoreapi.com/v1.1/apps/"+packageName, params = apiKey)
+#     data = json.loads(r.content)
+#     with open("data/" + packageName + ".json", 'w') as f:
+#        f.write(json.dumps(data))
+#     return data
 #     print data["recommendedApps"]
-
-
-def testRequest(packageName):
-    return getApps.getPermissions(packageName)
-
+    return None
 
