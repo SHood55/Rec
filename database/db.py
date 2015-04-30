@@ -25,6 +25,8 @@ def connect():
     print "DB connected and cursor created"
 
 def saveApp(app):
+    if not connect.db.open:
+        connect()
     sql = """INSERT INTO `App`(`name`, `permissions`, `similar`, `logoUrl`, `packageName`) VALUES (%s,%s,%s,%s,%s)"""
     if(app):
         connect.cursor.execute(sql, (app.name,json.dumps(app.permissions),json.dumps(app.similar),app.logo, app.packageName))
@@ -34,6 +36,8 @@ def saveApp(app):
 
     print "saved ", app.packageName
 def getAll():
+    if not connect.db.open:
+        connect()
     connect.cursor.execute("SELECT * FROM App")
 
 
@@ -42,7 +46,11 @@ def getAll():
         print row[0]
 
 def getApp(packageName):
+    if not connect.db.open:
+        connect()
+
     sql = """SELECT * FROM App WHERE packageName =%s"""
+
     connect.cursor.execute(sql,[packageName])
     row = connect.cursor.fetchone()
     realName = row[0]
@@ -64,6 +72,8 @@ def getJSonApp(packageName):
     return data
 
 def doesExist(packageName):
+    if not connect.db.open:
+        connect()
     #returns 1 if found, 0 if not
     connect.cursor.execute("SELECT EXISTS(SELECT 1 FROM App WHERE packageName = '%s')" % (packageName))
     result = connect.cursor.fetchone()
