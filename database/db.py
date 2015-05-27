@@ -10,9 +10,9 @@ from _ast import TryExcept
 import json
 
 def connect():
-    connect.db = MySQLdb.connect(host="mysql.stud.ntnu.no", # your host, usually localhost
-                     user="wilhelmw", # your username
-                      passwd="bendik99", # your password
+    connect.db = MySQLdb.connect(host="", # your host, usually localhost
+                     user="", # your username
+                      passwd="", # your password
                       db="wilhelmw_thesis") # name of the data base
 
 # you must create a Cursor object. It will let
