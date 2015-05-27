@@ -38,7 +38,7 @@ def run(packagename):
 def getSimilarWithLogo(packageName):
     print "getting apps similar to ", packageName
     s = requests.Session()
-    s.post("https://accounts.google.com/ServiceLogin", {"Email":'wilhelmws@gmail.com', "Passwd":'1.9.Alpha'})
+    s.post("https://accounts.google.com/ServiceLogin", {"Email":config.GOOGLE_LOGIN, "Passwd":config.GOOGLE_PASSWORD})
     value = {"id":packageName}
 # r = s.get("https://play.google.com/store/apps/details", params = value)
 # print r
